@@ -6,23 +6,23 @@ using System.Threading.Tasks;
 
 namespace bitLab.Log
 {
-  public class Log
+  public class Logger
   {
-    private static Log mInstance;
+    private static Logger mInstance;
     
     private List<ILogListener> mListeners;
 
-    private Log()
+    private Logger()
     {
       mListeners = new List<ILogListener>();
     }
 
-    private static Log Instance
+    private static Logger Instance
     {
       get
       {
         if (mInstance == null)
-          mInstance = new Log();
+          mInstance = new Logger();
         return mInstance;
       }
     }
