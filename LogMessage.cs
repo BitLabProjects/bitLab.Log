@@ -8,19 +8,26 @@ namespace bitLab.Log
 {
   public class LogMessage
   {
+    private int mPrg;
     private string mMessage;
     private ELogMessageType mType;
     private int mTag;
 
-    internal LogMessage(string message, 
+    internal LogMessage(int prg,
+                        string message, 
                         ELogMessageType type,
                         int tag)
     {
+      mPrg = prg;
       mMessage = message;
       mType = type;
       mTag = tag;
     }
 
+    public int Prg
+    {
+      get { return mPrg; }
+    }
     public string Message
     {
       get { return mMessage; }

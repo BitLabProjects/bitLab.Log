@@ -11,10 +11,12 @@ namespace bitLab.Log
     private static Logger mInstance;
     
     private List<ILogListener> mListeners;
+    private int mLogPrg;
 
     private Logger()
     {
       mListeners = new List<ILogListener>();
+      mLogPrg = 1;
     }
 
     private static Logger Instance
@@ -49,7 +51,8 @@ namespace bitLab.Log
 
     private static void Log(string message, ELogMessageType type, int tag)
     {
-      var logMessage = new LogMessage(message, type, tag);
+      var prg = Instance.mLogPrg++;
+      var logMessage = new LogMessage(prg, message, type, tag);
       foreach (var listener in Instance.mListeners)
         listener.LogMessage(logMessage);
     }
