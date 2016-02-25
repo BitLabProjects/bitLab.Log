@@ -32,9 +32,24 @@ namespace bitLab.Log
       Instance.mListeners.Add(listener);
     }
 
-    public static void LogInfo(string message)
+    public static void LogInfo(string message, int tag = 0)
     {
-      var logMessage = new LogMessage(message, ELogMessageType.Info);
+      Log(message, ELogMessageType.Info, tag);
+    }
+
+    public static void LogWarning(string message, int tag = 0)
+    {
+      Log(message, ELogMessageType.Warning, tag);
+    }
+
+    public static void LogError(string message, int tag = 0)
+    {
+      Log(message, ELogMessageType.Error, tag);
+    }
+
+    private static void Log(string message, ELogMessageType type, int tag)
+    {
+      var logMessage = new LogMessage(message, type, tag);
       foreach (var listener in Instance.mListeners)
         listener.LogMessage(logMessage);
     }

@@ -10,21 +10,28 @@ namespace bitLab.Log
   {
     private string mMessage;
     private ELogMessageType mType;
+    private int mTag;
 
-    internal LogMessage(string message, ELogMessageType type)
+    internal LogMessage(string message, 
+                        ELogMessageType type,
+                        int tag)
     {
       mMessage = message;
       mType = type;
+      mTag = tag;
     }
 
     public string Message
     {
       get { return mMessage; }
     }
-
     public ELogMessageType Type
     {
       get { return mType; }
+    }
+    public int Tag
+    {
+      get { return mTag; }
     }
   }
 }
