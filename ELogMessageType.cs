@@ -9,6 +9,7 @@ namespace bitLab.Log
   public enum ELogMessageType
   {
     Info,
+    Success,
     Warning,
     Error
   }

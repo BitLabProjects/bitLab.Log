@@ -39,6 +39,11 @@ namespace bitLab.Log
       Log(message, ELogMessageType.Info, tag);
     }
 
+    public static void LogSuccess(string message, int tag = 0)
+    {
+      Log(message, ELogMessageType.Success, tag);
+    }
+
     public static void LogWarning(string message, int tag = 0)
     {
       Log(message, ELogMessageType.Warning, tag);
