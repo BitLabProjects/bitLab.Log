@@ -34,6 +34,12 @@ namespace bitLab.Log
       Instance.mListeners.Add(listener);
     }
 
+    public static void Assert(bool condition, string message, int tag = 0)
+    {
+      if (!condition)
+        LogError(message, tag);
+    }
+
     public static void LogInfo(string message, int tag = 0)
     {
       Log(message, ELogMessageType.Info, tag);
